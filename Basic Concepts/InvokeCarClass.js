@@ -1,15 +1,22 @@
 const Car = require('./Car');
 
 function runApp(){
+    // Array
+    const carBrands = [
+        'Mercedes',
+        'Ford'
+    ];
+    carBrands.push('Mitsubishi');
+
     // Non-Parameterized constructor
     const car = new Car();
-    car.brand = 'Ford';
+    car.brand = carBrands[1];
     car.type = 'Freestyle';
     car.produceYear = 2019;
     car.displayCarInfo();
 
     // Parameterized constructor
-    const car2 = new Car('Ford', 'Figo', 2010);
+    const car2 = new Car(carBrands[2], 'Lancer', 2010);
     car2.displayCarInfo();
 
     // Prototypes
