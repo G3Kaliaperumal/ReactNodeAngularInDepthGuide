@@ -14,17 +14,4 @@ class Car {
     }
 }
 
-function runApp(){
-    // Non-Parameterized constructor
-    const car = new Car();
-    car.brand = 'Ford';
-    car.type = 'Freestyle';
-    car.produceYear = 2019;
-    car.displayCarInfo();
-
-    // Parameterized constructor
-    const car2 = new Car('Ford', 'Figo', 2010);
-    car2.displayCarInfo();
-}
-
-runApp();
+module.exports = Car;
