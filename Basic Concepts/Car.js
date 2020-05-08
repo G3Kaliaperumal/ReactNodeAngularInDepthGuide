@@ -14,4 +14,5 @@ class Car {
     }
 }
 
+// Reference Material: https://www.tutorialsteacher.com/nodejs/nodejs-module-exports
 module.exports = Car;
