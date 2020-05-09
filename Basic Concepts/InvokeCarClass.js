@@ -4,7 +4,7 @@ const readline = require('readline-sync');
 
 const iterator = require('./lib/CustomIterator');
 
-function runApp(){
+function runApp() {
     // Array
     const carBrands = [
         'Mercedes',
@@ -31,20 +31,20 @@ function runApp(){
     
     // Usage of forEach
     console.log('FOR EACH FUNCTION:-');
-    cars.forEach(function(car){
+    cars.forEach(function(car) {
         car.displayCarInfo();
     });
 
     // Usage of map function
     console.log('MAP FUNCTION:-');
-    const carTypes = cars.map(function(car){
+    const carTypes = cars.map(function(car) {
         return car.type;
     });
     console.log(carTypes);
 
     // Usage of filter function
     console.log('FILTER FUNCTION:-');
-    const fordCars = cars.filter(function(car){
+    const fordCars = cars.filter(function(car) {
         return carBrands[1] == car.brand;
     });
     console.log(fordCars);

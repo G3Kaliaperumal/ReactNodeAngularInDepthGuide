@@ -7,6 +7,7 @@
     "lib": "lib"
   },
   "dependencies": {
+    "node-emoji": "^1.10.0",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {},

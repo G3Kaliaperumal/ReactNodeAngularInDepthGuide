@@ -1,7 +1,7 @@
-const iterator = (function(){
+const iterator = (function() {
     return {
         forEach: function(list) {
-            for(let i = 0; i < list.length; i++){
+            for(let i = 0; i < list.length; i++) {
                 console.log(list[i]);
             }
         }
