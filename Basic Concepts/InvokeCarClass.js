@@ -1,4 +1,5 @@
 const Car = require('./Car');
+const RacingCar = require('./RacingCar');
 
 function runApp(){
     // Array
@@ -22,6 +23,9 @@ function runApp(){
     // Prototypes
     console.log(Car.prototype === car.__proto__);
     console.log(Car.prototype === car2.__proto__);
+
+    const racingCar = new RacingCar('k1', carBrands[0], 'Benz', 1990);
+    racingCar.displayCarInfo();
 }
 
 runApp();
