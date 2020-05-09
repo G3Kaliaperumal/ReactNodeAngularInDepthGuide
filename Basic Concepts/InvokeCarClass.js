@@ -1,5 +1,6 @@
 const Car = require('./src/Car/Car');
 const RacingCar = require('./src/Car/RacingCar');
+const readline = require('readline-sync');
 
 const iterator = require('./lib/CustomIterator');
 
@@ -51,6 +52,11 @@ function runApp(){
     // Custom Iteration method
     console.log('CUSTOM ITERATORS:-')
     iterator.forEach(cars);
+
+    // Using readline-sync
+    console.log('READLINE-SYNC:-');
+    let userName = readline.question('Your name pls?');
+    console.log(userName);
 }
 
 runApp();
