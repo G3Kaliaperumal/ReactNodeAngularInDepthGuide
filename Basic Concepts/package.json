@@ -1,0 +1,26 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "package.json to download your depencies by running 'npm install' command",
+  "main": "InvokeCarClass.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/G3Kaliaperumal/ReactNodeAngularInDepthGuide.git"
+  },
+  "author": "G3Kaliaperumal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/G3Kaliaperumal/ReactNodeAngularInDepthGuide/issues"
+  },
+  "homepage": "https://github.com/G3Kaliaperumal/ReactNodeAngularInDepthGuide#readme"
+}
