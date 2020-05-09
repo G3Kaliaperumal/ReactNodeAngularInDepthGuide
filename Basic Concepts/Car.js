@@ -9,8 +9,9 @@ class Car {
         this.produceYear = produceYear;
     }
 
-    displayCarInfo() {
-        console.log(`Brand name: ${this.brand}, Type: ${this.type}, Year: ${this.produceYear}`);
+    displayCarInfo(category) {
+        console.log(`Brand name: ${this.brand}, Type: ${this.type}, Year: ${this.produceYear}`
+        + (undefined !== category ? `, Category: ${category}` : ``));
     }
 }
 
