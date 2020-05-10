@@ -1,5 +1,7 @@
 const Car = require('./src/Car/Car');
 const RacingCar = require('./src/Car/RacingCar');
+const CarStorage = require('./src/Car/CarStorage');
+const CarManager = require('./src/Car/CarManager');
 const readline = require('readline-sync');
 const emoji = require('node-emoji');
 
@@ -11,7 +13,8 @@ function runApp() {
     console.log('Type "exit" to quit the program');
   }
 
-  const cars = [];
+  const carStorage = new CarStorage();
+  const carManager = new CarManager();
 
   let appRunning = true;
   displayOptions();
@@ -20,19 +23,14 @@ function runApp() {
         
     switch(userOption) {
       case '1':
-        console.log('Adding cars');
+        const newCar = carManager.createCar();
+        carStorage.addCar(newCar);
         break;
       case '2':
-        console.log('Removing cars');
+        carStorage.removeCar();
         break;
       case '3':
-        if (0 != cars.length) {
-          cars.forEach(function(car) {
-            car.displayCarInfo();
-          });
-        } else {
-          console.log('No cars to display. Please add!');
-        }
+        carStorage.listCars();
         break;
       case 'exit':
         console.log(emoji.emojify('GOOD BYE! :wave:'));
