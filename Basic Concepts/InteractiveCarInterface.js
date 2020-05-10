@@ -17,23 +17,29 @@ function runApp() {
     displayOptions();
     while(appRunning) {
         let userOption = readline.question('Please enter your option:-').toLowerCase();
-        if ('1' === userOption) {
-            console.log('Adding cars');
-        } else if ('2' === userOption) {
-            console.log('Removing cars');
-        } else if ('3' === userOption) {
-            if (0 != cars.length) {
-                cars.forEach(function(car) {
-                    car.displayCarInfo();
-                });
-            } else {
-                console.log('No cars to display. Please add!');
-            }
-        } else if ('exit' === userOption) {
-            console.log(emoji.emojify('GOOD BYE! :wave:'));
-            appRunning = false;
-        } else {
-            console.log('Invalid Options');
+        
+        switch(userOption) {
+            case '1':
+                console.log('Adding cars');
+                break;
+            case '2':
+                console.log('Removing cars');
+                break;
+            case '3':
+                if (0 != cars.length) {
+                    cars.forEach(function(car) {
+                        car.displayCarInfo();
+                    });
+                } else {
+                    console.log('No cars to display. Please add!');
+                }
+                break;
+            case 'exit':
+                console.log(emoji.emojify('GOOD BYE! :wave:'));
+                appRunning = false;
+                break;
+            default:
+                console.log('Invalid Options');
         }
     }
 }
