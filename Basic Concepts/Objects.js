@@ -1,16 +1,16 @@
 var car = {
-    brand: "",
-    type: "",
-    produceYear: "",
-    displayCarInfo: function() {
-        console.log(`Brand name: ${this.brand}, Type: ${this.type}, Year: ${this.produceYear}`);
-    },
-    nestedFunction: function() {
-        console.log('NESTED FUNCTION');
-        return function() {
-            console.log('RETURNS FUNCTION');
-        };
-    }
+  brand: "",
+  type: "",
+  produceYear: "",
+  displayCarInfo: function() {
+    console.log(`Brand name: ${this.brand}, Type: ${this.type}, Year: ${this.produceYear}`);
+  },
+  nestedFunction: function() {
+    console.log('NESTED FUNCTION');
+    return function() {
+      console.log('RETURNS FUNCTION');
+    };
+  }
 };
 
 car.brand = 'Mercedes';
