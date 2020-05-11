@@ -10,9 +10,7 @@ class CarStorage {
   }
 
   removeCar(carId) {
-    const carIndex = this.cars.findIndex(function(car) {
-      return car.id === carId;
-    });
+    const carIndex = this.cars.findIndex(car => car.id === carId);
 
     if (carIndex === -1) {
       console.log('Invalid id!');
@@ -28,9 +26,7 @@ class CarStorage {
       return;
     }
 
-    this.cars.forEach(function(car) {
-      car.displayCarInfo();
-    });
+    this.cars.forEach(car => car.displayCarInfo());
   }
 }
 
