@@ -24,6 +24,7 @@ function runApp() {
     switch(userOption) {
       case '1':
         const newCar = carManager.createCar();
+        newCar.setCarDate();
         carStorage.addCar(newCar);
         break;
       case '2':
