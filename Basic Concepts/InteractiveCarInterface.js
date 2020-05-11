@@ -2,6 +2,7 @@ const Car = require('./src/Car/Car');
 const RacingCar = require('./src/Car/RacingCar');
 const CarStorage = require('./src/Car/CarStorage');
 const CarManager = require('./src/Car/CarManager');
+const iterator = require('./lib/CustomIterator');
 const readline = require('readline-sync');
 const emoji = require('node-emoji');
 
@@ -44,4 +45,16 @@ function runApp() {
   }
 }
 
-runApp();
+// runApp();
+
+function runTestApp() {
+  // Different ways to fetch data from async calls
+  // Method 1: callback functions
+  const dbData = iterator.getDBdata(dbData => {
+    console.log('Async data after timeout: ' + dbData);
+  });
+
+  console.log('Async data before timeout: ' + dbData);
+}
+
+runTestApp();
