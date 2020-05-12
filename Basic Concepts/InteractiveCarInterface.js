@@ -47,14 +47,29 @@ function runApp() {
 
 // runApp();
 
-function runTestApp() {
+// To map the async methods (i.e.) to make the async methods to run as sync you can use 'async' and 'await' methods
+// Observe the output before and after
+async function runTestApp() {
   // Different ways to fetch data from async calls
   // Method 1: callback functions
-  const dbData = iterator.getDBdata(dbData => {
-    console.log('Async data after timeout: ' + dbData);
+  const dbData1 = await iterator.getMethod1DBdata((data) => {
+    console.log('Method 1:- Async data after timeout: ' + data);
+    return data;
   });
 
-  console.log('Async data before timeout: ' + dbData);
+  // Method 2: Using Promise. Multiple then() can be defined
+  const dbData2 = await iterator.getMethod2DBdata()
+    .then((data) => {
+      console.log('Method 2:- Async data after timeout: ' + data);
+      return data;
+    })
+    .catch((errorMessage) => {
+      console.log(errorMessage);
+      return errorMessage;
+    });
+
+  console.log('Method 1:- Async data before timeout: ' + dbData1);
+  console.log('Method 2:- Async data before timeout: ' + dbData2);
 }
 
 runTestApp();
