@@ -1,3 +1,5 @@
+const Promise = require('./Promise');
+
 const iterator = (function() {
     return {
         // To replicate back-end service calls
