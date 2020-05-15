@@ -1,4 +1,5 @@
 const Promise = require('./Promise');
+const { Observable } = require('rxjs');
 
 const iterator = (function() {
     return {
@@ -20,6 +21,20 @@ const iterator = (function() {
               // reject(errorMessage);
             }, 3000);
           });
+        },
+        getMethod3DBdata: function() {
+            // To know more view the link https://rxjs-dev.firebaseapp.com/guide/observable
+            return new Observable((observer) => {
+                setTimeout(() => {
+                    observer.next('Data 1');
+                    observer.next('Data 2');
+                    // To invoke error function call back. The following lines will not be executed in this case too.
+                    // observer.error();
+                    observer.complete();
+                    // The following observers will not be executed anymore because of complete() function call
+                    observer.next('Data 3');
+                }, 3000);
+            });
         },
         getCurrentDate: function(callback) {
           const date = new Date().toLocaleString();
