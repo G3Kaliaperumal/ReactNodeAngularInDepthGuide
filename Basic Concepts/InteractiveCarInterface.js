@@ -72,4 +72,20 @@ async function runTestApp() {
   console.log('Method 2:- Async data before timeout: ' + dbData2);
 }
 
-runTestApp();
+// runTestApp();
+
+function runTestApp2() {
+  // 1st callback - success function; 2nd - error fn; 3rd - when the observer is completed
+  iterator.getMethod3DBdata().subscribe((data) => {
+      console.log(data);
+    }, (error) => {
+      console.log('ERROR');
+    }, () => {
+      console.log('Observer is completed');
+  });
+
+  console.log('runTestApp2 - Execution of last line');
+}
+
+runTestApp2();
+
