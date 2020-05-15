@@ -1,5 +1,6 @@
 const Promise = require('./Promise');
-const { Observable } = require('rxjs');
+// const { Observable } = require('rxjs');
+const Observable = require('./Observable');
 
 const iterator = (function() {
     return {
