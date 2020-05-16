@@ -1,10 +1,11 @@
 import React from 'react';
+import './App.css';
 
 // Functional Component
 function App() {
   return (
-    <div className="App">
-      <h1> Hello World </h1>
+    <div>
+      <h1 className='title'> HAPPY.. </h1>
     </div>
   );
 }
