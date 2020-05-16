@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
+import CounterApp from './components/CounterApp/CounterApp';
 
 // Functional Component
 function App() {
   return (
-    <div>
-      <h1 className='title'> HAPPY.. </h1>
-    </div>
+    <CounterApp />
   );
 }
 
