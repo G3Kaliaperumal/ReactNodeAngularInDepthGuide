@@ -21,4 +21,5 @@ const CounterView = (props) => {
   );
 }
 
-export default CounterView;
+// React.memo => View is re-rendered only when the props are modified
+export default React.memo(CounterView);
