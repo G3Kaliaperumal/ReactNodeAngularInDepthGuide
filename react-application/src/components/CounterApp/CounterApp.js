@@ -2,15 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './CounterApp.css';
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import CounterView from './CounterView';
 
 // Functional Component
 const CounterApp = (props) => {
   const [count, setCount] = useState(0);
+  const [whatever, setWhatever] = useState(10);
   const { title } = props;
 
-  const modifyValue = (step) => () => setCount(count + step);
+  // useCallback() => returns a memoized callback; Reference: https://reactjs.org/docs/hooks-reference.html#usecallback
+  const modifyValue = useCallback((step) => () => setCount(count + step), [count]);
+  const doWhatever = useCallback(() => setWhatever(whatever + 1), [whatever]);
 
   return (
     <div className='counter-app'>
@@ -19,6 +22,8 @@ const CounterApp = (props) => {
           countValue = {count}
           handlerModifyValue = {modifyValue}
         />
+        <h2>{whatever}</h2>
+        <button onClick={doWhatever}>Do Whatever</button>
       </div>
   );
 }
