@@ -5,7 +5,7 @@ import CounterApp from './components/CounterApp/CounterApp';
 // Functional Component
 function App() {
   return (
-    <CounterApp />
+    <CounterApp title="My Counter Application" />
   );
 }
 
