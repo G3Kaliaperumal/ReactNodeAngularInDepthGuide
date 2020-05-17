@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './CounterApp.css';
 
-/*
 import { useState } from 'react';
+import CounterView from './CounterView';
 
 // Functional Component
 const CounterApp = (props) => {
@@ -15,14 +15,15 @@ const CounterApp = (props) => {
   return (
     <div className='counter-app'>
         <h2>{title}</h2>
-        <h1 className='value'>{count}</h1>
-        <button onClick={modifyValue(1)}>Increment</button>
-        <button onClick={modifyValue(-1)}>Decrement</button>
+        <CounterView
+          countValue = {count}
+          handlerModifyValue = {modifyValue}
+        />
       </div>
   );
-}*/
+}
 
-// Class Component
+/*// Class Component
 class CounterApp extends React.Component {
 
   constructor() {
@@ -51,7 +52,7 @@ class CounterApp extends React.Component {
       </div>
     );
   }
-}
+}*/
 
 // Required for both Fnctl and class cmpt
 CounterApp.propTypes = {
