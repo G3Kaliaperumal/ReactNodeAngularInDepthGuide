@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react';
 
+const generateColor = () => {
+  return '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
+}
+
 const CounterView = (props) => {
   const { countValue, handlerModifyValue } = props;
 
@@ -9,7 +13,7 @@ const CounterView = (props) => {
   }, []);
 
   return (
-    <div>
+    <div style={{background: generateColor()}}>
       <h1 className='value'>{countValue}</h1>
       <button onClick={handlerModifyValue(1)}>Increment</button>
       <button onClick={handlerModifyValue(-1)}>Decrement</button>
