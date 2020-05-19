@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import CounterApp from './components/CounterApp/CounterApp';
+import Header from './components/shared/Header';
 
 // Functional Component
 function App() {
   return (
-    <CounterApp title="My Counter Application" />
+    <Header />
   );
 }
 
