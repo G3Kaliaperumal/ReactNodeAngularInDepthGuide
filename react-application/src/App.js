@@ -1,25 +1,16 @@
 import React from 'react';
-import Header from './components/shared/Header';
-import { Router, Route } from './components/Router';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import RentalHome from './pages/RentalHome';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import Header from './components/shared/Header';
+import Routes from './Routes';
+
 
 // Functional Component
 function App() {
   return (
     <Router>
       <Header />
-      <Route path="/">
-        <RentalHome />
-      </Route>
-      <Route path="/login">
-        <Login />
-      </Route>
-      <Route path="/register">
-        <Register />
-      </Route>
+      <Routes />
     </Router>
   );
 }
