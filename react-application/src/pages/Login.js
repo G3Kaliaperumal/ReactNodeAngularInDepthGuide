@@ -1,11 +1,9 @@
 import React from 'react';
 
+import connect from '../store/connect';
+
 class Login extends React.Component {
-  render() {
-    return (
-      <h1>Login</h1>
-    )
-  }
+  render = () => <p>{JSON.stringify(this.props.rentals())}</p>
 }
 
-export default Login;
+export default connect(Login);
