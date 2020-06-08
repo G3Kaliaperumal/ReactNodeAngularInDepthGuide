@@ -2,15 +2,17 @@ import React from 'react';
 
 import { StateContext } from '../state-context';
 
-const connect = (Component) => {
-    class ConnectClass extends React.Component {
-        render() {
-            return <Component {...this.context}></Component>;
-        }
+const connect = sliceProperties => Component => {
+  class ConnectClass extends React.Component {
+    render() {
+      const slicedValues = sliceProperties(this.context);
+      return <Component {...slicedValues}></Component>;
     }
-
-    ConnectClass.contextType = StateContext;
-    return ConnectClass;
+  }
+  
+  ConnectClass.contextType = StateContext;
+  return ConnectClass;
 }
+
 
 export default connect;
