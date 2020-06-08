@@ -1,7 +1,7 @@
 import React from 'react';
 
 import RentalCard from '../components/rental/RentalCard';
-import { StateContext } from '../state-context';
+import connect from '../store/connect';
 
 class RentalHome extends React.Component {
 
@@ -10,9 +10,9 @@ class RentalHome extends React.Component {
   }
 
   componentDidMount() {
-    const store = this.context;
+    const { rentals } = this.props;
     this.setState({
-      rentals: store.rentals()
+      rentals: rentals()
     });
   }
 
@@ -37,5 +37,4 @@ class RentalHome extends React.Component {
   }
 }
 
-RentalHome.contextType = StateContext;
-export default RentalHome;
+export default connect(RentalHome);
