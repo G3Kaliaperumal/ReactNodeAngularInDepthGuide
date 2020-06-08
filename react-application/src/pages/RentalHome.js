@@ -37,4 +37,10 @@ class RentalHome extends React.Component {
   }
 }
 
-export default connect(RentalHome);
+const mapStateToProps = (state) => {
+  return {
+    rentals: state.rentals
+  }
+}
+
+export default connect(mapStateToProps)(RentalHome);
