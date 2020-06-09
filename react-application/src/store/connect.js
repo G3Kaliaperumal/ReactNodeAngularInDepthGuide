@@ -5,9 +5,9 @@ import { StateContext } from './Provider';
 const connect = selectState => Component => {
   class ConnectClass extends React.Component {
     render() {
-      const state = this.context.getState();
-      const slice = selectState(state);
-      return <Component {...slice}></Component>;
+      const {getState, dispatch } = this.context;
+      const slice = selectState(getState());
+      return <Component {...slice} dispatch={dispatch}></Component>;
     }
   }
   
