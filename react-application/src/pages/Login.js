@@ -3,7 +3,10 @@ import React from 'react';
 import connect from '../store/connect';
 
 class Login extends React.Component {
-  render = () => <p>{JSON.stringify(this.props.data1())}</p>
+  render = () => {
+    const { data1 } = this.props;
+    return <p>{JSON.stringify(data1)}</p>;
+  }
 }
 
 const mapStateToProps = (state) => {

@@ -11,9 +11,7 @@ class RentalHome extends React.Component {
 
   componentDidMount() {
     const { rentals } = this.props;
-    this.setState({
-      rentals: rentals()
-    });
+    this.setState({rentals});
   }
 
   renderRentals = (rentals) => 

@@ -3,19 +3,19 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import Header from './components/shared/Header';
 import Routes from './Routes';
-import { StateContext } from './state-context';
-import store from './store/rentals';
+import Provider from './store/Provider';
+import { initStore } from './store/rentals';
 
-
+const store = initStore();
 // Functional Component
 function App() {
   return (
-    <StateContext.Provider value={store}>
+    <Provider store={store}>
       <Router>
         <Header />
         <Routes />
       </Router>
-    </StateContext.Provider>
+    </Provider>
   );
 }
 
