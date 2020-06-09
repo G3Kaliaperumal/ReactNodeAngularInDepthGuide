@@ -2,6 +2,7 @@ import React from 'react';
 
 import RentalCard from '../components/rental/RentalCard';
 import connect from '../store/connect';
+import { fetchRentals } from '../actions/rentals';
 
 class RentalHome extends React.Component {
 
@@ -10,7 +11,7 @@ class RentalHome extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch({type: 'FETCH_RENTALS'});
+    this.props.dispatch(fetchRentals());
   }
 
   renderRentals = (rentals) => 
