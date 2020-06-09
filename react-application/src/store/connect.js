@@ -11,7 +11,7 @@ const connect = selectState => Component => {
         slice: selectState(context.getState())
       }
 
-      this.unsubscribe = context.subscribe(() => this.handleStateChange(context));
+      this.subscribe = context.subscribe(() => this.handleStateChange(context));
     }
 
     handleStateChange = (context) => {
