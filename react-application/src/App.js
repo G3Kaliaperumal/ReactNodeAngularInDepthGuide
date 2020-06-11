@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import Header from './components/shared/Header';
 import Routes from './Routes';
-import Provider from './store/Provider';
+import { Provider } from 'react-redux';
 import { initStore } from './store/rentals';
 
 const store = initStore();
