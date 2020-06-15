@@ -13,7 +13,7 @@ const Routes = () =>
         <RentalHome />
       </Route>
       <Route path="/rental/:id">
-        <RentalDetail id="id" />
+        <RentalDetail />
       </Route>
       <Route path="/login">
         <Login />

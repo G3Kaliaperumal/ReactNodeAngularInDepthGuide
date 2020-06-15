@@ -3,7 +3,7 @@
 // No API calls, no route transitions
 // Example: Math.random()
 const rentals = (state = [], action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'FETCH_RENTALS':
       return action.rentals;
     case 'CREATE_RENTAL':

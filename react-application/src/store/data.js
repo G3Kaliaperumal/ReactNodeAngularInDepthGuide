@@ -1,5 +1,5 @@
 exports.rentalData = [{
-  _id: 1,
+  _id: '1',
   title: "Nice view on ocean",
   city: "San Francisco",
   category: "condo",
@@ -10,7 +10,7 @@ exports.rentalData = [{
   dailyPrice: 43
 },
 {
-  _id: 2,
+  _id: '2',
   title: "Modern apartment in center",
   city: "New York",
   category: "apartment",
@@ -21,7 +21,7 @@ exports.rentalData = [{
   dailyPrice: 11
 },
 {
-  _id: 3,
+  _id: '3',
   title: "Old house in nature",
   city: "Bratislava",
   category: "house",

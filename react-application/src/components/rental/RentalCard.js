@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const RentalCard = ({ rental }) => {
   return (
-    <Link className="rental-link" to={`/rental/${rental.id}`}>
+    <Link className="rental-link" to={`/rental/${rental._id}`}>
       <div className="card bwm-card">
         <img
           className="card-img-top"
