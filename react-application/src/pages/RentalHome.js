@@ -30,10 +30,10 @@ class RentalHome extends React.Component {
     this.props.dispatch(createRental(newRental));
   }
 
-  renderRentals = (rentals) => 
-    rentals.map(rental => 
+  renderRentals = (rentals) =>
+    rentals.map(rental =>
       <div key={rental._id} className="col-md-3">
-        <RentalCard rental={rental}/>
+        <RentalCard rental={rental} />
       </div>
     );
 
@@ -44,7 +44,7 @@ class RentalHome extends React.Component {
       <div className="card-list">
         <h1 className="page-title">Your Home All Around the World</h1>
         <div className="row">
-          { this.renderRentals(rentals) }
+          {this.renderRentals(rentals)}
         </div>
         <button
           onClick={this.createRental}

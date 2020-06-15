@@ -1,4 +1,4 @@
-import { createStore, combineReducers} from 'redux';
+import { createStore, combineReducers } from 'redux';
 import rentals from './reducers/rentals';
 
 export function initStore() {

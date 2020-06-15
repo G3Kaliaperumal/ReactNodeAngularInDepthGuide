@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import RentalHome from './pages/RentalHome';
+import RentalDetail from './pages/RentalDetail';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
@@ -11,10 +12,13 @@ const Routes = () =>
       <Route exact path="/">
         <RentalHome />
       </Route>
-      <Route exact path="/login">
+      <Route path="/rental/:id">
+        <RentalDetail id="id" />
+      </Route>
+      <Route path="/login">
         <Login />
       </Route>
-      <Route exact path="/register">
+      <Route path="/register">
         <Register />
       </Route>
     </Switch>
