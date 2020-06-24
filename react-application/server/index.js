@@ -36,8 +36,35 @@ app.post('/api/v1/rentals', (req, res) => {
   return res.json({
     message: `Rental data: ${rentalData._id} added successfully!`,
     rentals: rentals
-  })
-})
+  });
+});
+
+app.delete('/api/v1/rentals/:rentalId', (req, res) => {
+  const { rentalId } = req.params;
+  const rentalIndex = rentals.findIndex(r => r._id === rentalId);
+  rentals.splice(rentalIndex, 1);
+
+  return res.json({
+    message: `Rental data: ${rentalId} removed successfully!`,
+    rentals: rentals
+  });
+
+  return res.json(rental);
+});
+
+app.patch('/api/v1/rentals/:rentalId', (req, res) => {
+  const { rentalId } = req.params;
+  const rentalDataToBeUpdated = req.body;
+  const rentalIndex = rentals.findIndex(r => r._id === rentalId);
+  rentals.splice(rentalIndex, 1, rentalDataToBeUpdated);
+
+  return res.json({
+    message: `Rental data: ${rentalId} updated successfully!`,
+    rentals: rentals
+  });
+
+  return res.json(rental);
+});
 
 app.listen(PORT, () => {
   console.log('Server is listening to the port: ', PORT);
