@@ -2,9 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const router = require('./routes/rentals')
-const config = require('./config/dev')
-const Rental = require('./models/rentals')
+const router = require('./routes/rentals');
+const config = require('./config/dev');
+const Rental = require('./models/rentals');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
