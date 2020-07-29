@@ -1,24 +1,23 @@
-const rentals = [
-  {
-    _id: '1',
-    city: 'New York',
-    title: 'The Golden Villa'
-  }, {
-    _id: '2',
-    city: 'New Hamphshire',
-    title: 'The Backingham Palace'
-  }
-]
+const Rental = require('../models/rentals');
 
 exports.getRentals = (req, res) => {
-  return res.json(rentals);
+  Rental.find({}, (error, foundRentals) => {
+    if (error)
+      return res.status(422).send({ errors: [{ title: 'Rental Error!', message: 'Cannot retrieve rental data' }] });
+
+    return res.json(foundRentals);
+  })
 }
 
 exports.getRentalById = (req, res) => {
-  const rentalId = req.params.rentalId;
-  const rental = rentals.find(r => r._id === rentalId)
+  const { rentalId } = req.params;
 
-  return res.json(rental);
+  Rental.findById(rentalId, (error, foundRental) => {
+    if (error)
+      return res.status(422).send({ errors: [{ title: 'Rental Error!', message: 'Something went wrong!' }] });
+
+    return res.json(foundRental);
+  });
 }
 
 exports.createRental = (req, res) => {
@@ -27,29 +26,6 @@ exports.createRental = (req, res) => {
 
   return res.json({
     message: `Rental data: ${rentalData._id} added successfully!`,
-    rentals: rentals
-  });
-}
-
-exports.updateRental = (req, res) => {
-  const { rentalId } = req.params;
-  const rentalDataToBeUpdated = req.body;
-  const rentalIndex = rentals.findIndex(r => r._id === rentalId);
-  rentals.splice(rentalIndex, 1, rentalDataToBeUpdated);
-
-  return res.json({
-    message: `Rental data: ${rentalId} updated successfully!`,
-    rentals: rentals
-  });
-}
-
-exports.deleteRental = (req, res) => {
-  const { rentalId } = req.params;
-  const rentalIndex = rentals.findIndex(r => r._id === rentalId);
-  rentals.splice(rentalIndex, 1);
-
-  return res.json({
-    message: `Rental data: ${rentalId} removed successfully!`,
     rentals: rentals
   });
 }
