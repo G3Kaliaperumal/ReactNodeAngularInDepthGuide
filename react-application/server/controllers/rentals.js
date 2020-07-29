@@ -22,10 +22,12 @@ exports.getRentalById = (req, res) => {
 
 exports.createRental = (req, res) => {
   const rentalData = req.body;
-  rentals.push(rentalData);
+  const newRental = new Rental(rentalData);
 
-  return res.json({
-    message: `Rental data: ${rentalData._id} added successfully!`,
-    rentals: rentals
+  newRental.save((error, createdRental) => {
+    if (error)
+      return res.status(422).send({ errors: [{ title: 'Rental Error!', message: `Something went wrong! ${error}` }] });
+
+    return res.json({ message: `Rental with id: ${createdRental._id} was added!` });
   });
 }
