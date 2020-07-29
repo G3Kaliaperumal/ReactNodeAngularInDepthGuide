@@ -22,9 +22,8 @@ exports.getRentalById = (req, res) => {
 
 exports.createRental = (req, res) => {
   const rentalData = req.body;
-  const newRental = new Rental(rentalData);
 
-  newRental.save((error, createdRental) => {
+  Rental.create(rentalData, (error, createdRental) => {
     if (error)
       return res.status(422).send({ errors: [{ title: 'Rental Error!', message: `Something went wrong! ${error}` }] });
 
