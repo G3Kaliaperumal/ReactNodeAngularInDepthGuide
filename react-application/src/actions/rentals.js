@@ -13,28 +13,18 @@ export const fetchRentals = () => dispatch => {
     });
 }
 
-export const fetchRentalById = rentalId => dispatch => {
-  axios
-    .get(`/api/v1/rentals/${rentalId}`)
-    .then(res => {
-      const rental = res.data;
-
-      dispatch({
-        type: 'FETCH_RENTAL_BY_ID',
-        rental
-      });
-    });
+export const fetchRentalById = rentalId => async dispatch => {
+  dispatch({ type: 'IS_FETCHING_RENTAL' });
+  const res = await axios.get(`/api/v1/rentals/${rentalId}`)
+  dispatch({
+    type: 'FETCH_RENTAL_BY_ID',
+    rental: res.data
+  });
 }
 
-export const createRental = (rental) => dispatch => {
-  axios
-    .post('/api/v1/rentals', rental)
-    .then(res => {
-      const rental = res.data;
-
-      dispatch({
-        type: 'CREATE_RENTAL',
-        rental
-      });
-    });
+export const createRental = rental => {
+  return {
+    type: 'CREATE_RENTAL',
+    rental
+  }
 }
