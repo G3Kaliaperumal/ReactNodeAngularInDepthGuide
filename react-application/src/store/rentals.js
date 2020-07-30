@@ -6,9 +6,7 @@ import rental from './reducers/rental';
 export function initStore() {
   const reducers = combineReducers({
     rentals,
-    rental,
-    data1: () => ['Happy', 'Coding', 'Babe!'],
-    data2: () => [1, 2, 3]
+    rental
   });
 
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
