@@ -1,18 +1,22 @@
-import { rentalData } from 'store/data'
+import axios from 'axios';
 
 export const fetchRentals = () => {
+  axios.get('http://localhost:3000/api/v1/rentals')
+    .then(res => {
+      const rentals = res.body;
+      return rentals;
+    });
+
   return {
     type: 'FETCH_RENTALS',
-    rentals: rentalData
+    rentals: []
   }
 }
 
 export const fetchRentalById = (rentalId) => {
-  const rental = rentalData.find((rental) => rental._id === rentalId);
-
   return {
     type: 'FETCH_RENTAL_BY_ID',
-    rental
+    rental: []
   }
 }
 
