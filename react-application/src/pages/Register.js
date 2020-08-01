@@ -28,7 +28,7 @@ class Register extends React.Component {
                 <input type="password" className="form-control" id="passwordConfirmation" />
               </div>
 
-              <button type="submit" className="btn btn-bwm-main">Submit</button>
+              <button type="submit" className="btn btn-outline-success my-2 my-sm-0">Submit</button>
             </form>
           </div>
           <div className="col-md-6 ml-auto">
