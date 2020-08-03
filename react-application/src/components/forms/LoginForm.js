@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
+import FormError from './FormError';
 
 const Error = ({ children }) =>
   <div className="alert alert-danger">
@@ -27,9 +28,9 @@ const LoginForm = ({ onSubmit }) => {
           className="form-control"
           id="email"
         />
-        <ErrorMessage as={<Error />} errors={errors} name="email">
-          {({ message }) => <p>{message}</p>}
-        </ErrorMessage>
+        <FormError errors={errors} name="email">
+          {(message) => <p>{message}</p>}
+        </FormError>
       </div>
 
       <div className="form-group">
