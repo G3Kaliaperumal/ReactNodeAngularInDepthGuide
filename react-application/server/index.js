@@ -2,7 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const router = require('./routes/rentals');
+const rentalRoutes = require('./routes/rentals');
+const userRoutes = require('./routes/users');
+
 const config = require('./config/dev');
 const Rental = require('./models/rentals');
 
@@ -18,7 +20,8 @@ mongoose.connect(config.DB_URI, {
 });
 
 app.use(bodyParser.json())
-app.use('/api/v1/rentals', router);
+app.use('/api/v1/rentals', rentalRoutes);
+app.use('/api/v1/users', userRoutes);
 
 app.listen(PORT, () => {
   console.log('Server is listening to the port: ', PORT);
