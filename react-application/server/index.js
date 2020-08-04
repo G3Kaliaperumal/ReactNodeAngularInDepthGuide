@@ -1,12 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const config = require('./config/dev');
 
+// Routes
 const rentalRoutes = require('./routes/rentals');
 const userRoutes = require('./routes/users');
 
-const config = require('./config/dev');
-const Rental = require('./models/rentals');
+// Models
+require('./models/rentals');
+require('./models/user');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -14,7 +17,8 @@ const PORT = process.env.PORT || 3001;
 // Replace <password> with the actual password
 mongoose.connect(config.DB_URI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useCreateIndex: true
 }, () => {
   console.log('Success');
 });
