@@ -23,7 +23,13 @@ mongoose.connect(config.DB_URI, {
   console.log('Success');
 });
 
-app.use(bodyParser.json())
+// Middleware
+app.use(bodyParser.json());
+app.use((req, res, next) => {
+  console.log('Hello World!');
+  next();
+});
+
 app.use('/api/v1/rentals', rentalRoutes);
 app.use('/api/v1/users', userRoutes);
 
