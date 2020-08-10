@@ -11,6 +11,9 @@ const userRoutes = require('./routes/users');
 require('./models/rentals');
 require('./models/user');
 
+// Middleware
+const { onlyAuthUser } = require('./controllers/users')
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -25,9 +28,8 @@ mongoose.connect(config.DB_URI, {
 
 // Middleware
 app.use(bodyParser.json());
-app.use((req, res, next) => {
-  console.log('Hello World!');
-  next();
+app.get('/api/v1/secret', onlyAuthUser, (req, res) => {
+  return res.json({ message: `Secret! ${res.locals.user.username}` });
 });
 
 app.use('/api/v1/rentals', rentalRoutes);
