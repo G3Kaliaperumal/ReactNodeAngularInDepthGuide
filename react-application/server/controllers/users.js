@@ -59,9 +59,10 @@ exports.onlyAuthUser = (req, res, next) => {
   const token = req.headers.authorization;
 
   if (token) {
-    const decodedToken = parseToken(token);
+    const { decodedToken, error } = parseToken(token);
 
-    if (!decodedToken) return notAuthorized(res);
+    if (error)
+      return res.status(422).send({ errors: [{ title: 'Token Error', detail: 'Token is malformed!' }] });
 
     User.findById(decodedToken.sub, (error, foundUser) => {
       if (error)
@@ -81,7 +82,12 @@ exports.onlyAuthUser = (req, res, next) => {
 }
 
 function parseToken(token) {
-  return jwt.verify(token.split(' ')[1], config.JWT_SECRET) || null;
+  try {
+    const decodedToken = jwt.verify(token.split(' ')[1], config.JWT_SECRET);
+    return { decodedToken };
+  } catch (error) {
+    return { error: error.message };
+  }
 }
 
 function notAuthorized(res) {
