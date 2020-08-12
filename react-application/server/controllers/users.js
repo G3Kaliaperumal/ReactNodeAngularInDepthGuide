@@ -1,7 +1,6 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const config = require('../config/dev');
-const user = require('../models/user');
 
 exports.login = (req, res) => {
   const { email, password } = req.body;
@@ -11,7 +10,7 @@ exports.login = (req, res) => {
 
   User.findOne({ email }, (error, foundUser) => {
     if (error)
-      return res.status(422).send({ errors: [{ title: 'DB Error', detail: 'Oooops, something went wrong!' }] });
+      return res.mongoError(error);
 
     if (!foundUser)
       return res.status(422).send({ errors: [{ title: 'Invalid Email', detail: "User with provided email doesn't exists" }] });
@@ -40,7 +39,7 @@ exports.register = (req, res) => {
 
   User.findOne({ email }, (error, existingUser) => {
     if (error)
-      return res.status(422).send({ errors: [{ title: 'DB Error', detail: 'Oooops, something went wrong!' }] });
+      return res.mongoError(error);
 
     if (existingUser)
       return res.status(422).send({ errors: [{ title: 'Invalid Email', detail: 'User with provided email already exists!' }] });
@@ -48,7 +47,7 @@ exports.register = (req, res) => {
     const user = new User({ username, email, password });
     user.save((error) => {
       if (error)
-        return res.status(422).send({ errors: [{ title: 'DB Error', detail: 'Oooops, something went wrong!' }] });
+        return res.mongoError(error);
 
       return res.json({ status: 'registered' });
     })
@@ -66,7 +65,7 @@ exports.onlyAuthUser = (req, res, next) => {
 
     User.findById(decodedToken.sub, (error, foundUser) => {
       if (error)
-        return res.status(422).send({ errors: [{ title: 'DB Error', detail: 'Oooops, something went wrong!' }] });
+        return res.mongoError(error);
 
       if (foundUser) {
         res.locals.user = foundUser;

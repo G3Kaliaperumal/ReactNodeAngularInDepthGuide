@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const config = require('./config/dev');
+const { mongoErrorHandler } = require('./middlewares');
 
 // Routes
 const rentalRoutes = require('./routes/rentals');
@@ -28,6 +29,7 @@ mongoose.connect(config.DB_URI, {
 
 // Middleware
 app.use(bodyParser.json());
+app.use(mongoErrorHandler);
 app.get('/api/v1/secret', onlyAuthUser, (req, res) => {
   return res.json({ message: `Secret! ${res.locals.user.username}` });
 });
