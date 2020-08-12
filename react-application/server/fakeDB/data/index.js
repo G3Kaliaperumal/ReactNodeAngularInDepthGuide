@@ -1,4 +1,14 @@
-const rentals = [{
+exports.users = [{
+  username: "Test User",
+  email: "test@gmail.com",
+  password: "testtest"
+}, {
+  username: "Test User2",
+  email: "test2@gmail.com",
+  password: "testtest2"
+}]
+
+exports.rentals = [{
   title: "Nice view on ocean",
   city: "San Francisco",
   street: "Main street",
@@ -31,5 +41,3 @@ const rentals = [{
   description: "Very nice apartment in center of the city.",
   dailyPrice: 23
 }]
-
-module.exports = rentals;

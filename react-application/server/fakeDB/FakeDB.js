@@ -1,13 +1,17 @@
-const rentals = require('./data/rentals');
+const { users, rentals } = require('./data/index');
 const Rental = require('../models/rentals');
+const User = require('../models/user');
+const user = require('../models/user');
 
 class FakeDB {
-  clean() {
-    return Rental.deleteMany({});
+  async clean() {
+    await Rental.deleteMany({});
+    await User.deleteMany({});
   }
 
-  addData() {
-    return Rental.create(rentals);
+  async addData() {
+    await Rental.create(rentals);
+    await User.create(users);
   }
 
   async popuate() {
